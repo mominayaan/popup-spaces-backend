@@ -1,0 +1,36 @@
+version: '3.7'
+
+services:
+  api:
+    build:
+      context: .
+      args:
+        GITHUB_PAT: ${GITHUB_PAT}
+    command: [ "uvicorn", "main:app", "--host", "0.0.0.0", "--port", "5000", "--reload" ]
+    volumes:
+      - .:/app
+    ports:
+      - "5001:5000"
+    environment:
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - ENV=dev
+      - DB_URL=mongodb://mongo:27017
+    depends_on:
+      - redis
+      - mongo
+
+  redis:
+    image: "redis:latest"
+    ports:
+      - "6380:6379"
+
+  mongo:
+    image: "mongo:latest"
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+volumes:
+  mongo-data:

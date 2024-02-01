@@ -1,0 +1,23 @@
+# Redis
+REDIS_HOST=
+REDIS_PORT=
+REDIS_PASSWORD=
+REDIS_URL=
+
+# DB
+DB_URL=
+DB_NAME=NeutrinoAppDB  # Change this
+
+# Mailgun
+MAILGUN_DOMAIN=mg.neutrinoapp.com
+MAILGUN_API_KEY=
+
+# GitHub (For OAuth)
+GITHUB_CLIENT_ID=
+GITHUB_CLIENT_SECRET=
+
+# GitHub (For installing private dependencies repo)
+GITHUB_PAT=
+
+# JWT
+JWT_SECRET_KEY=
